@@ -1,0 +1,53 @@
+.contact-title {
+    font-size: 20px;
+    font-weight: 400;
+    color: #2E2D2D;
+    margin: 0 0 20px;
+    padding: 0;
+    text-transform: uppercase;
+}
+.main-wrap{
+    padding: 40px 0;
+}
+
+.contact-title span {
+    color: #21b9b8;
+}
+
+.main-wrap .form-group {
+    margin-bottom: 1rem;
+}
+
+.main-wrap .form-group label{
+    display: inline-block;
+    margin-bottom: 0.5rem
+
+}
+
+.rd-mailform .form-control {
+    border-radius: 0;
+    height: 40px;
+    border: 1px solid #ADADAD;
+}
+
+.main-wrap{
+    padding: 40px 10px;
+}
+
+.left-contact{
+    box-shadow: 0 0 6px 0px black;
+    padding: 24px 20px;
+}
+
+.btn-send {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #595b83;
+    margin: 15px 0 0;
+    display: inline-block;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    width: 100%;
+    height: auto;
+}

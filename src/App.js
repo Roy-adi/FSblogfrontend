@@ -13,6 +13,7 @@ import Blogdetails from './Component/BlogDetails/Blogdetails';
 import News from './Component/News/News';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Contact from './Component/Contact/Contact';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/signup' element={<Signup />} />
             <Route path='/login' element={<Login />} />
+            <Route path='/contact' element={<Contact/>} />
             <Route path='/profile' element={<Profile />} />
             <Route path='/create' element={<PrivateRoute component={<Create />} />} />
             <Route path='/update/:id' element={<Update />} />

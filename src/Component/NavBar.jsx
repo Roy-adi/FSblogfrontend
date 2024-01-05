@@ -82,19 +82,37 @@ const NavBar = () => {
               Home
             </Link>
           </li>
-          <li className="nav-item">
-          <Link to='/about' className="nav-link active" aria-current="page" href="#">
-            About Us
-          </Link>
-        </li>
-          <li className="nav-item"  >
-            <a className="nav-link">Search </a>
-          </li>
+          
           <li className="nav-item">
             <Link to='/contact' className="nav-link">Contact</Link>
           </li>
  
-          <div className='d-block'> 
+          <div className='d-none d-md-flex'> 
+          { account.isLoggedIn? (
+           <>
+             <li className="nav-item dropdown" >
+               <Link className='nav-link' to= '/profile'> Hello { "😊 " } {account.username} </Link>
+             </li> 
+ 
+            <li className="nav-item" >
+               <button className='nav-link' onClick={handleLogout}> Logout </button>
+             </li>
+           </>
+         ) : (
+           <>
+           <li className="nav-item" >
+           <Link className='nav-link' to= '/login'> Login </Link>
+           </li>
+           <li className="nav-item" >
+           <Link className='nav-link' to= '/signup'> Signup </Link>
+           </li>
+           </>
+         )} 
+          </div>
+
+
+      
+          <div className='d-block d-md-none'> 
           { account.isLoggedIn? (
            <>
              <li className="nav-item dropdown" >
