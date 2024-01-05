@@ -11,6 +11,8 @@ import DataProvider from './Component/DataProvider';
 import Profile from './Component/Profile';
 import Home from './Component/Home/Home';
 import Blogdetails from './Component/BlogDetails/Blogdetails';
+import Menu from './Component/Menu';
+import News from './Component/News/News';
 function App() {
 
   return (
@@ -27,6 +29,7 @@ function App() {
    <Route path='/update/:id' element= {<Update/>}  />
    <Route path='/blog/:id' element={<Blogdetails/>} />
    </Routes>
+   <News/>
    </BrowserRouter>
 
    </DataProvider>

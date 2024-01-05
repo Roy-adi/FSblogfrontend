@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom';
 import { DataContext } from './DataProvider';
 import { getRefreshToken } from './utils/common';
 import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
+import './Menu.css';
+
 const NavBar = () => {
   const { account, setAccount } = useContext(DataContext);
 
@@ -48,61 +52,73 @@ const NavBar = () => {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className="navbar-brand">FULLSTACK CRUD </a>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <Link className="nav-link" to="/">
-                ALL
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/create">
-                CREATE
-              </Link>
-            </li>
-            {account.isLoggedIn ? (
-              <>
-              <li className="nav-item">
-                <Link className="nav-link" to="/profile">
-                  Profile
-                </Link>
-              </li>
-              <li className="nav-item">
-                <button className="nav-link" onClick={handleLogout}>
-                  Logout
-                </button>
-              </li>
-            </>
-            ) : (
-              <>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/signup">
-                    SignUp
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/login">
-                    Login
-                  </Link>
-                </li>
-              </>
-            )}
-          </ul>
-        </div>
-      </nav>
+    <nav
+    className="navbar navbar-expand-md navbar-dark"
+    style={{ backgroundColor: "#595B83" }}
+  >
+    <div className="container-fluid">
+      <a className="navbar-brand" href="#">
+        <h2 className='blog-name'>Ray-Blogs</h2>
+      </a>
+      <button
+        className="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span className="navbar-toggler-icon" />
+      </button>
+      <div className="collapse navbar-collapse" id="navbarNav">
+        <ul className="navbar-nav mx-auto">
+          <li className="nav-item">
+            <Link to='/' className="nav-link active" aria-current="page" href="#">
+              Home
+            </Link>
+          </li>
+          <li className="nav-item">
+          <Link to='/about' className="nav-link active" aria-current="page" href="#">
+            About Us
+          </Link>
+        </li>
+          <li className="nav-item"  >
+            <a className="nav-link">Search </a>
+          </li>
+          <li className="nav-item">
+            <Link to='/contact' className="nav-link">Contact</Link>
+          </li>
+ 
+          <div className='d-flex'> 
+          { account.isLoggedIn? (
+           <>
+             <li className="nav-item dropdown" >
+               <Link className='nav-link' to= '/profile'> Hello { "😊 " } {account.username} </Link>
+             </li>
+ 
+            <li className="nav-item" >
+               <button className='nav-link' onClick={handleLogout}> Logout </button>
+             </li>
+           </>
+         ) : (
+           <>
+           <li className="nav-item" >
+           <Link className='nav-link' to= '/login'> Login </Link>
+           </li>
+           <li className="nav-item" >
+           <Link className='nav-link' to= '/signup'> Signup </Link>
+           </li>
+           </>
+         )} 
+          </div>
+        
+ 
+        </ul>
+      </div>
+    </div>
+    
+  </nav>
     </div>
   );
 };

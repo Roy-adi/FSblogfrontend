@@ -2,7 +2,7 @@ import React, { useState , useRef } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 import { getAccessToken } from './utils/common';
-
+import { FiUpload } from 'react-icons/fi';
 
 function Create() {
   const [formData, setFormData] = useState({
@@ -69,52 +69,67 @@ function Create() {
   
   return (
     <div className="container mt-5">
-      <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label className="form-label">Title:</label>
-          <input
-            type="text"
-            className="form-control"
-            name="title"
-            value={formData.title}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="mb-3">
-          <label className="form-label">Description:</label>
-          <input
-            type="text"
-            className="form-control"
-            name="desc"
-            value={formData.desc}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="mb-3">
-          <label className="form-label">Email:</label>
-          <input
-            type="text"
-            className="form-control"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="col-md-12">
-        <div className="form-group">
-          <label className="form-label">Blog Image</label>
-          <input
-            type="file"
-            name="img"
-            accept="image/*"
-            ref={fileRef}
-          />
-        </div>
+    <div className='blog-wraps'>
+    <form onSubmit={handleSubmit}>
+    <div className="mb-3">
+      <label className="form-label">Title:</label>
+      <input
+        type="text"
+        className="form-control"
+        name="title"
+        value={formData.title}
+        onChange={handleChange}
+      />
+    </div>
+    <div className="mb-3">
+      <label className="form-label">Description:</label>
+      <input
+        type="text"
+        className="form-control"
+        name="desc"
+        value={formData.desc}
+        onChange={handleChange}
+      />
+    </div>
+    <div className="mb-3">
+      <label className="form-label">Email:</label>
+      <input
+        type="text"
+        className="form-control"
+        name="email"
+        value={formData.email}
+        onChange={handleChange}
+      />
+    </div>
+    <div className="col-md-12">
+    <div className="form-group">
+      <label className="form-label">Blog Image</label>
+      <div className="file-wrapper">
+      <div className="file-upload">
+        <input
+          type="file"
+          name="img"
+          accept="image/*"
+          ref={fileRef}
+        />
+        <FiUpload size={100} />
       </div>
-        <button type="submit" className="btn btn-primary">Submit</button>
-      </form>
+    </div>
+    </div>
+  </div>
+    <button type="submit" className="btn btn-primary">Submit</button>
+  </form>
+    </div>
+    
     </div>
   );
 }
 
 export default Create;
+
+
+
+
+
+
+

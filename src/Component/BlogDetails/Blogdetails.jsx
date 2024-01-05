@@ -1,18 +1,38 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './Blogdetails.css';
-import { useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { FaFacebook, FaTwitter, FaInstagram, FaGooglePlus } from 'react-icons/fa';
+import { DataContext } from '../DataProvider';
 
 const Blogdetails = () => {
   const [blog, setBlog] = useState({});
   const { id } = useParams();
 
+  const { account } = useContext(DataContext);
+  const navigate = useNavigate()
   const getBlog = async () => {
     try {
       const response = await axios.get(`https://blogback-qong.onrender.com/api/v1/users/post/${id}`);
       setBlog(response);
       console.log(response, 'blog');
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      const response = await axios.delete(`https://blogback-qong.onrender.com/api/v1/users/delete/${id}`);
+      if (response.data.success) {
+        // Update the state to reflect the deleted post
+        setBlog((prevBlogs) => prevBlogs.filter((blog) => blog._id !== id));
+        console.log('Post successfully deleted!', response.data.message);
+      } else {
+        console.error('Failed to delete post. Response:', response.data.message);
+      }
+      navigate('/')
+      
     } catch (error) {
       console.error(error.message);
     }
@@ -67,6 +87,14 @@ const Blogdetails = () => {
                       </a>
                     </li>
                   </ul>
+                  { account.username === blog.data?.data?.username && (
+                    <>
+                    <div className='auth-btn-wrap'>
+                    <Link to={`/update/${blog.data?.data?._id}`}><button className='auth-btn'>Update</button> </Link> 
+                    <button className='auth-btn' onClick={() => handleDelete(blog.data?.data?._id)}>Delete</button>
+                    </div>
+                    </>
+                  ) }
                   
                 </div>
               </div>

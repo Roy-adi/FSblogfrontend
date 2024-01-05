@@ -197,11 +197,13 @@ const Update = () => {
       // Remove loading indicator or enable submit button
       setLoading(false);
     }
+    navigate('/')
   };
 
   return (
     <div className="container mt-5">
       <h2>Update Post</h2>
+      <div className='blog-wraps'>
       <form onSubmit={handleFormSubmit}>
         <div className="mb-3">
           <label className="form-label">Title:</label>
@@ -244,6 +246,8 @@ const Update = () => {
           {loading ? 'Updating...' : 'Update'}
         </button>
       </form>
+      </div>
+      
     </div>
   );
 };
