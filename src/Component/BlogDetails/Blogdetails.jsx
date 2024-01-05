@@ -4,7 +4,8 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { FaFacebook, FaTwitter, FaInstagram, FaGooglePlus } from 'react-icons/fa';
 import { DataContext } from '../DataProvider';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Blogdetails = () => {
   const [blog, setBlog] = useState({});
   const { id } = useParams();
@@ -32,7 +33,7 @@ const Blogdetails = () => {
         console.error('Failed to delete post. Response:', response.data.message);
       }
       navigate('/')
-      
+      toast.success('Successfully Deleted');
     } catch (error) {
       console.error(error.message);
     }

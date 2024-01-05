@@ -1,6 +1,7 @@
-// Login.jsx
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './auth.css';
 import { DataContext } from '../DataProvider';
 
@@ -46,6 +47,7 @@ const Login = () => {
             isLoggedIn: true,
           });
           navigate('/');
+          toast.success('Successfully logged in!');
         } else {
           console.error('Invalid response structure:', responseData);
         }

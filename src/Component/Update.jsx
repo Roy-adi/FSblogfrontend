@@ -115,7 +115,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Update = () => {
   const { id } = useParams();
   
@@ -198,6 +199,7 @@ const Update = () => {
       setLoading(false);
     }
     navigate('/')
+    toast.success('Successfully Updated!');
   };
 
   return (
@@ -242,7 +244,7 @@ const Update = () => {
 
           </div>
         </div>
-        <button type="submit" className="btn btn-primary" disabled={loading}>
+        <button type="submit" className="submit-btn" disabled={loading}>
           {loading ? 'Updating...' : 'Update'}
         </button>
       </form>

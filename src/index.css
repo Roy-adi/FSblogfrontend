@@ -63,4 +63,20 @@ code {
 }
 
 
+.submit-btn{
+  margin-top: 15px;
+    width: 100%;
+    height: 50px;
+    background-color: #007bff ;
+    outline: none;
+    border: solid #fff;
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3; /* Change to a slightly darker shade on hover */
+  transform: scale(1.05); /* Scale the button slightly on hover */
+}
 

@@ -7,6 +7,8 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import './Menu.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const NavBar = () => {
   const { account, setAccount } = useContext(DataContext);
@@ -40,6 +42,8 @@ const NavBar = () => {
     sessionStorage.removeItem('refreshToken');
     sessionStorage.removeItem('name');
     sessionStorage.removeItem('username');
+
+    toast.success('Successfully logged out!');
   
     // Update the account context to reflect logout
     setAccount({

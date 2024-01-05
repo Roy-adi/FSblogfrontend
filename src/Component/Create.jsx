@@ -3,6 +3,8 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 import { getAccessToken } from './utils/common';
 import { FiUpload } from 'react-icons/fi';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Create() {
   const [formData, setFormData] = useState({
@@ -53,6 +55,7 @@ function Create() {
   
       // Assuming you have a 'navigate' function defined somewhere
       navigate('/');
+      toast.success('Successfully Blog created');
   
       if (response.status === 200) {
         // Handle successful response
@@ -117,7 +120,7 @@ function Create() {
     </div>
     </div>
   </div>
-    <button type="submit" className="btn btn-primary">Submit</button>
+    <button type="submit" className="submit-btn">Submit</button>
   </form>
     </div>
     
