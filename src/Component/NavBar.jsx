@@ -94,12 +94,12 @@ const NavBar = () => {
             <Link to='/contact' className="nav-link">Contact</Link>
           </li>
  
-          <div className='d-flex'> 
+          <div className='d-block'> 
           { account.isLoggedIn? (
            <>
              <li className="nav-item dropdown" >
                <Link className='nav-link' to= '/profile'> Hello { "😊 " } {account.username} </Link>
-             </li>
+             </li> 
  
             <li className="nav-item" >
                <button className='nav-link' onClick={handleLogout}> Logout </button>
